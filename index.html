@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -244,17 +244,17 @@
   <div class="badge">Open Source · MIT License</div>
   <h1>AI <span>Voice</span> Input</h1>
   <p class="subtitle">
-    Telegram bot cho nhân viên sale: gửi voice message sau cuộc gọi,
-    AI tự động ghi nhận thông tin khách hàng vào database.
+    A Telegram bot for field sales reps: send a voice message after a customer visit,
+    AI automatically extracts and saves customer data to the database.
   </p>
   <a href="https://github.com/naomitruong/ai-voice-input" class="btn btn-primary">GitHub Repo</a>
-  <a href="#setup" class="btn btn-secondary">Hướng dẫn cài đặt</a>
+  <a href="#setup" class="btn btn-secondary">Get Started</a>
 </header>
 
 <main>
 
   <!-- Flow -->
-  <div class="section-title">⚡ Luồng xử lý</div>
+  <div class="section-title">⚡ How It Works</div>
   <div class="flow">
     <div class="flow-step">
       <div class="flow-left">
@@ -262,8 +262,8 @@
         <div class="flow-line"></div>
       </div>
       <div class="flow-content">
-        <h3>Nhân viên gửi voice message</h3>
-        <p>Gửi trực tiếp qua Telegram sau khi kết thúc cuộc gọi sale</p>
+        <h3>Sales rep sends a voice message</h3>
+        <p>Sent directly via Telegram right after a field visit or customer meeting</p>
       </div>
     </div>
     <div class="flow-step">
@@ -272,8 +272,8 @@
         <div class="flow-line"></div>
       </div>
       <div class="flow-content">
-        <h3>Whisper chuyển giọng nói → văn bản</h3>
-        <p>Chạy local bằng faster-whisper, hỗ trợ tiếng Việt, không tốn phí API</p>
+        <h3>Whisper converts speech → text</h3>
+        <p>Runs locally with faster-whisper — no API cost, works offline</p>
       </div>
     </div>
     <div class="flow-step">
@@ -282,8 +282,8 @@
         <div class="flow-line"></div>
       </div>
       <div class="flow-content">
-        <h3>Claude AI trích xuất dữ liệu</h3>
-        <p>Phân tích transcript, tách ra tên khách, số điện thoại, trạng thái, ghi chú</p>
+        <h3>Claude AI extracts structured data</h3>
+        <p>Parses the transcript and pulls out customer name, phone, status, and notes</p>
       </div>
     </div>
     <div class="flow-step">
@@ -292,8 +292,8 @@
         <div class="flow-line"></div>
       </div>
       <div class="flow-content">
-        <h3>Lưu vào SQLite</h3>
-        <p>Ghi record vào bảng <code>phone_call</code>, bot trả về xác nhận ngay</p>
+        <h3>Saved to SQLite</h3>
+        <p>Record inserted into <code>phone_call</code> table, bot replies with a confirmation</p>
       </div>
     </div>
   </div>
@@ -304,7 +304,7 @@
     <div class="chat">
       <div class="msg right">
         <div class="bubble">
-          🎤 <em>"Gọi cho khách Nguyễn Văn A, số không 9,09,12,34,56, họ từ chối và nói đừng gọi lại"</em>
+          🎤 <em>"Visited customer Nguyen Van A, phone 0909123456 — not interested, do not follow up"</em>
         </div>
         <div class="avatar user">👤</div>
       </div>
@@ -313,9 +313,9 @@
         <div class="bubble">
           <div class="label">AI Voice Bot</div>
           <div class="result">
-            ✅ Đã lưu cuộc gọi:<br>
+            ✅ Visit saved:<br>
             📅 Date: 2026-06-24<br>
-            👤 Customer: Nguyễn Văn A<br>
+            👤 Customer: Nguyen Van A<br>
             📞 Phone: 0909123456<br>
             📊 Status: rejected<br>
             📝 Note: do not call back
@@ -331,49 +331,49 @@
     <div class="tech-card">
       <div class="icon">✈️</div>
       <h4>python-telegram-bot</h4>
-      <p>Framework nhận và xử lý message từ Telegram</p>
+      <p>Framework for receiving and handling Telegram messages</p>
     </div>
     <div class="tech-card">
       <div class="icon">🔉</div>
       <h4>faster-whisper</h4>
-      <p>Speech-to-text chạy offline, hỗ trợ tiếng Việt tốt</p>
+      <p>Offline speech-to-text with strong Vietnamese support</p>
     </div>
     <div class="tech-card">
       <div class="icon">✨</div>
       <h4>Claude Haiku</h4>
-      <p>AI trích xuất thông tin từ transcript, trả về JSON</p>
+      <p>AI that extracts structured fields from the transcript as JSON</p>
     </div>
     <div class="tech-card">
       <div class="icon">🗄️</div>
       <h4>SQLite</h4>
-      <p>Database nhẹ, không cần cài đặt thêm, built-in Python</p>
+      <p>Lightweight database, zero setup, built into Python</p>
     </div>
     <div class="tech-card">
       <div class="icon">🎞️</div>
       <h4>ffmpeg</h4>
-      <p>Chuyển đổi audio OGG → WAV để Whisper xử lý</p>
+      <p>Converts audio from OGG to WAV for Whisper processing</p>
     </div>
   </div>
 
   <!-- Setup -->
-  <div class="section-title" id="setup">🚀 Cài đặt</div>
-  <pre><span class="comment"># 1. Clone repo</span>
+  <div class="section-title" id="setup">🚀 Getting Started</div>
+  <pre><span class="comment"># 1. Clone the repo</span>
 <span class="cmd">git clone</span> <span class="str">https://github.com/naomitruong/ai-voice-input.git</span>
 <span class="cmd">cd</span> ai-voice-input
 
-<span class="comment"># 2. Tạo virtual environment</span>
+<span class="comment"># 2. Create a virtual environment</span>
 <span class="cmd">python -m venv</span> venv
 <span class="cmd">source</span> venv/bin/activate
 
-<span class="comment"># 3. Cài dependencies</span>
+<span class="comment"># 3. Install dependencies</span>
 <span class="cmd">pip install</span> -r requirements.txt
 <span class="cmd">pip install</span> faster-whisper
 
-<span class="comment"># 4. Tạo file .env</span>
+<span class="comment"># 4. Create .env file</span>
 TELEGRAM_TOKEN=<span class="str">your_bot_token</span>
 ANTHROPIC_API_KEY=<span class="str">your_api_key</span>
 
-<span class="comment"># 5. Chạy bot</span>
+<span class="comment"># 5. Run the bot</span>
 <span class="cmd">python</span> bot.py</pre>
 
 </main>
